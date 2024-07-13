@@ -1,12 +1,10 @@
 
-import './App.css';
 import './index.css'
+import Body from './components/Body'
 
 function App() {
   return (
-    <div className='text-7xl text-purple-500'>
-      Namaste React lets build netflix gpt!!!!!!
-    </div>
+    <Body />
   );
 }
 
