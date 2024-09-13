@@ -83,12 +83,12 @@ const Login = () => {
     setIsSignInForm(!isSignInForm);
   }
   return (
-    <div>
+    <div className='bg-gradient-to-b from-black'>
       <Header logState={true}/>
-      <div className='absolute'>
-        <img className='h-screen w-screen' src={BG_URL} alt="body-img" />
+      <div className='relative'>
+        <img className='top-0 left-0 absolute h-screen w-screen object-cover opacity-[0.95] z-10' src={BG_URL} alt="body-img" />
       </div>
-      <form onSubmit={(e) => e.preventDefault()} className='w-3/12 px-12 py-5 bg-black absolute mt-24 mx-auto left-0 right-0 text-white rounded-lg bg-opacity-80 z-20'>
+      <form onSubmit={(e) => e.preventDefault()} className='w-[80%] md:w-3/12 md:px-12 py-5 bg-black absolute md:mt-24 mx-auto left-0 right-0 text-white rounded-lg bg-opacity-80 z-50 mt-32 px-10'>
         <h1 className='font-bold text-3xl py-4 text-zinc-200'>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
         {!isSignInForm && <input ref={fullName} type="text" placeholder="Full Name" className='p-2 my-2 w-full bg-zinc-700'/>}
         {!isSignInForm && <p className='text-red-500 text-right text-sm'>{isFullnameMessage}</p>}

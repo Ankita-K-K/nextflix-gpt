@@ -47,21 +47,21 @@ const Header = ({logState}) => {
   }
 
   return (logState === true ? (
-    <div className='absolute px-32 py-1 z-10 h-screen w-screen bg-gradient-to-b from-black'>
+    <div className='absolute px-32 py-1 z-50 h-screen w-screen bg-gradient-to-b from-black'>
       <img className='w-48 bg-gradient-to-b from black opacity-80 bg-transparent' src={LOGO_URL} alt="netflix-logo"/>
     </div>
 
   ):(
     <div className='sticky top-0 z-50'>
-     <div className='absolute  py-1 w-screen bg-black flex justify-between items-center px-32 bg-opacity-40'>
+     <div className='absolute  py-1 w-screen bg-black flex justify-between items-center px-32 bg-opacity-60 md:flex-row flex-col'>
       <img className='w-28' src={LOGO_URL} alt="netflix-logo"/>
       
-      <div className='flex justify-center gap-4'>
+      <div className='flex md:justify-center justify-between gap-4'>
       {showGptSearch && <select className='outline-none bg-zinc-800 text-white m-1' onChange={handleSelectLang}>
         {SUPPORTED_LANGUAGES.map(lang=><option className='outline-none' key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
         </select>}
-      <button className='bg-red-600 py-1 px-2 rounded-sm text-white font-semibold' onClick={handleGptClick}>{showGptSearch ? "Home" : "GPT search"}</button>
-      <button type='button' className='bg-red-600 text-white px-2 py-1 rounded-sm font-semibold' onClick={handleSignOut}>Sign Out</button>
+      <button className='bg-red-600 px-1 md:px-2 py-2 rounded-sm text-white font-semibold text-sm' onClick={handleGptClick}>{showGptSearch ? "Home" : "GPT search"}</button>
+      <button type='button' className='bg-red-600 text-white px-1 rounded-sm md:px-2 py-2 font-semibold text-sm' onClick={handleSignOut}>Sign Out</button>
       </div>
     </div>
     </div>

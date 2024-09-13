@@ -9,7 +9,7 @@ const MainContainer = () => {
     const mainMovie = movies[0];
     console.log(mainMovie);
   return (
-    <div className='scrollbar-hide scarollBar-thin scrollbar-webkit'>
+    <div className='scrollbar-hide scarollBar-thin scrollbar-webkit pt-[18%] md:pt-0'>
       <VideoTitle movie={mainMovie}/>
       <VideoBG movieId={mainMovie.id}/>    
     </div>

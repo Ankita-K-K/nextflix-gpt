@@ -6,7 +6,7 @@ const VideoBG = ({movieId}) => {
   useMovieTrailer(movieId);
   return (
     <div className=" w-screen scarollBar-thin scrollbar-webkit">
-      <iframe className="w-screen aspect-video scarollBar-thin scrollbar-webkit" src={"https://www.youtube-nocookie.com/embed/"+tarilerVideo?.key +
+      <iframe className="w-full aspect-video scarollBar-thin scrollbar-webkit scale-y-[1.65] md:scale-y-[1.4]" src={"https://www.youtube-nocookie.com/embed/"+tarilerVideo?.key +
           "?&autoplay=1&mute=1&controls=0&loop=1"} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   );

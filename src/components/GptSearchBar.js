@@ -3,7 +3,7 @@ import lang from '../utils/languageConstants'
 import { useDispatch, useSelector } from 'react-redux'
 import openai from '../utils/openai'
 import { OPTIONS } from '../utils/constants'
-import { addGptMovieResult } from '../utils/gptSlice'
+import { addGptMovieResult, clearMovies } from '../utils/gptSlice'
 
 const GptSearchBar = () => {
     const dispatch = useDispatch();
@@ -34,10 +34,14 @@ const handleSearchClick = async () =>{
 
   return (
     <div className='w-screen h-screen bg-gradient-to-b from-zinc-950'>
-    <div className='pt-[13%] flex justify-center'>
-      <form className='bg-black w-1/2 grid grid-cols-12' onSubmit={(e)=>e.preventDefault()}>
-        <input type='text' ref={searchText} className='p-2 text-white m-4 col-span-9 outline-none bg-zinc-800' placeholder={lang[selectedLanguage].gptSearchPH}/>
-        <button className='px-4 py-1 font-semibold bg-red-500 rounded-sm text-white col-span-3 m-4' onClick={handleSearchClick}>{lang[selectedLanguage].search}</button>
+    <div className='pt-[35%] md:pt-[13%] flex justify-center'>
+      <form className='bg-black w-full md:w-1/2 grid grid-cols-12' onSubmit={(e)=>e.preventDefault()}>
+        <input type='text' ref={searchText} className='p-2 text-white my-4 ml-2 col-span-8 outline-none bg-zinc-800' placeholder={lang[selectedLanguage].gptSearchPH}/>
+        <button className='text-zinc-600 scale-x-150 text-3xl col-span-1 index' tabIndex="0" onClick={()=>{
+          searchText.current.value = null;
+          dispatch(clearMovies())
+        }}>X</button>
+        <button className='px-1 py-1 font-semibold bg-red-500 rounded-sm text-white col-span-3 m-4' onClick={handleSearchClick}>{lang[selectedLanguage].search}</button>
       </form>
     </div>
     </div>
