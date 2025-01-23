@@ -16,7 +16,6 @@ const Browse = () => {
   useUpcomingMovies();
   const showGptSearch = useSelector((store)=>store.gpt.showGptSearch);
   const movieId = useSelector((store)=>store.movies.nowPlayingMovies);
-  console.log(movieId);
   return (
     <div>
       <Header logState={false}/>

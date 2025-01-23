@@ -7,7 +7,6 @@ const MainContainer = () => {
     const movies = useSelector((store)=>store.movies?.nowPlayingMovies);
     if(!movies) return;  //early return
     const mainMovie = movies[0];
-    console.log(mainMovie);
   return (
     <div className='scrollbar-hide scarollBar-thin scrollbar-webkit pt-[18%] md:pt-0'>
       <VideoTitle movie={mainMovie}/>

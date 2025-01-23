@@ -15,3 +15,17 @@ export const OPTIONS = {
 export const BG_URL = "https://assets.nflxext.com/ffe/siteui/vlv3/8728e059-7686-4d2d-a67a-84872bd71025/e90516bd-6925-4341-a6cf-0b9f3d0c140a/IN-en-20240708-POP_SIGNUP_TWO_WEEKS-perspective_WEB_34324b52-d094-482b-8c2a-708dc64c9065_small.jpg"
 
 export const OPEN_API_KEY = process.env.REACT_APP_OPEN_API_KEY;
+
+export const FIREBASE_API = process.env.REACT_APP_FIREBASE_API;
+
+export const AUTH_DOMAIN = process.env.REACT_APP_AUTH_DOMAIN;
+
+export const PROJECT_ID = process.env.REACT_APP_PROJECT_ID;
+
+export const STORAGE_BUCKET = process.env.REACT_APP_STORAGE_BUCKET;
+
+export const MESSAGING_ID = process.env.REACT_APP_MESSAGING_ID;
+
+export const APP_ID = process.env.REACT_APP_APPID;
+
+export const MEASUREMENT_ID = process.env.REACT_APP_MEASUREMENT_ID;

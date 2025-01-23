@@ -8,7 +8,6 @@ import { addGptMovieResult, clearMovies } from '../utils/gptSlice'
 const GptSearchBar = () => {
     const dispatch = useDispatch();
     const selectedLanguage = useSelector((store)=>store.lang.lang);
-    console.log(selectedLanguage);
     const searchText = useRef(null);
   const searchMovieTMDB = async (movie) =>{
     const data = await fetch('https://api.themoviedb.org/3/search/movie?query='+ movie + '&include_adult=false&page=1', OPTIONS);
@@ -17,7 +16,6 @@ const GptSearchBar = () => {
   }
 
 const handleSearchClick = async () =>{
-    console.log(searchText.current.value);
     //make an api call to openai get movie results
     const gptQuery = "Act as a movie recomandation system and suggest some movies for the query" + searchText.current.value + ". only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: Tare Zameen Par, Chichore, 3-idiots, Golmaal, Koi Mil Gaya"
     const gptResults = await openai.chat.completions.create({
@@ -37,10 +35,10 @@ const handleSearchClick = async () =>{
     <div className='pt-[35%] md:pt-[13%] flex justify-center'>
       <form className='bg-black w-full md:w-1/2 grid grid-cols-12' onSubmit={(e)=>e.preventDefault()}>
         <input type='text' ref={searchText} className='p-2 text-white my-4 ml-2 col-span-8 outline-none bg-zinc-800' placeholder={lang[selectedLanguage].gptSearchPH}/>
-        <button className='text-zinc-600 scale-x-150 text-3xl col-span-1 index' tabIndex="0" onClick={()=>{
+        <button className='text-zinc-600 scale-x-150 text-3xl col-span-1 index' onClick={()=>{
           searchText.current.value = null;
           dispatch(clearMovies())
-        }}>X</button>
+        }} type='button'>X</button>
         <button className='px-1 py-1 font-semibold bg-red-500 rounded-sm text-white col-span-3 m-4' onClick={handleSearchClick}>{lang[selectedLanguage].search}</button>
       </form>
     </div>
